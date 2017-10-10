@@ -1,0 +1,22 @@
+<%= form_with(model: ram_use,local: true) do |form| %>
+  <% if ram_use.errors.any? %>
+    <div id="error_explanation">
+      <h2><%= pluralize(ram_use.errors.count, "error") %> prohibited this ram_use from being saved:</h2>
+
+      <ul>
+      <% ram_use.errors.full_messages.each do |message| %>
+        <li><%= message %></li>
+      <% end %>
+      </ul>
+    </div>
+  <% end %>
+
+  <div class="form-group">
+    <%= form.label :value %>
+    <%= form.text_field :value,class: "form-control"  %>
+  </div>
+
+  <div class="actions">
+  <%= form.submit "Crear",class:"btn btn-primary" %>
+  </div>
+<% end %>
