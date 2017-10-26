@@ -1,0 +1,21 @@
+<h1>Ram uses</h1>
+
+<table class="table">
+  <thead>
+    <tr>
+      <th>Id</th>
+      <th>Date</th>
+      <th>Value</th>
+    </tr>
+  </thead>
+
+  <tbody>
+    <% @ram_uses.each do |ram_use| %>
+      <tr>
+        <td><%= ram_use.id %></td>
+        <td><%= ram_use.created_at %></td>
+        <td><%= ram_use.value %></td>
+      </tr>
+    <% end %>
+  </tbody>
+</table>

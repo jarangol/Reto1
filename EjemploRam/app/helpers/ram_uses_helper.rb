@@ -1,0 +1,2 @@
+module RamUsesHelper
+end
