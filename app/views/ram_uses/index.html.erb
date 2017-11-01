@@ -1,21 +1,31 @@
-<h1>Ram uses</h1>
+<div class="row col-md-8 col-md-offset-2">
+  <h1>Ram uses</h1>
+  <div class="panel panel-default">
+    <% if @ram_uses.any? %>
+      <div class="panel-body" id="ram_uses">
+          <table class="table">
+            <thead>
+              <tr>
+                <th>Id</th>
+                <th>Date</th>
+                <th>Value</th>
+              </tr>
+            </thead>
 
-<table class="table">
-  <thead>
-    <tr>
-      <th>Id</th>
-      <th>Date</th>
-      <th>Value</th>
-    </tr>
-  </thead>
-
-  <tbody>
-    <% @ram_uses.each do |ram_use| %>
-      <tr>
-        <td><%= ram_use.id %></td>
-        <td><%= ram_use.created_at %></td>
-        <td><%= ram_use.value %></td>
-      </tr>
-    <% end %>
-  </tbody>
-</table>
+            <tbody>
+              <% @ram_uses.each do |ram_use| %>
+                <tr>
+                  <td><%= ram_use.id %></td>
+                  <td><%= ram_use.created_at %></td>
+                  <td><%= ram_use.value %></td>
+                </tr>
+              <% end %>
+            </tbody>
+          </table>
+      </div>
+    <%else%>
+      <div class="panel-body hidden" id="ram_uses">
+      </div>
+    <%end%>
+  </div>
+</div>

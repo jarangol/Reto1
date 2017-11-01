@@ -1,5 +1,4 @@
 class RamUsesController < ApplicationController
-  before_action :set_ram_use, only: [:show]
   protect_from_forgery with: :null_session
 
   def index
@@ -18,7 +17,11 @@ class RamUsesController < ApplicationController
     @ram_use = RamUse.new(ram_use_params)
     respond_to do |format|
       if @ram_use.save
-        format.html { redirect_to @ram_use, notice: 'Use was successfully created.' }
+        ActionCable.server.broadcast 'ram_uses',
+          value: @ram_use.value,
+          created_at: @ram_use.created_at
+        head :ok
+        format.html { redirect_to @ram_use, notioce: 'Use was successfully created.' }
         format.json { render :show, status: :created, location: @ram_use }
       else
         format.html { render :new }
