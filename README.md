@@ -1,24 +1,5 @@
-# README
+# Reto1
 
-This README would normally document whatever steps are necessary to get the
-application up and running.
-
-Things you may want to cover:
-
-* Ruby version
-
-* System dependencies
-
-* Configuration
-
-* Database creation
-
-* Database initialization
-
-* How to run the test suite
-
-* Services (job queues, cache servers, search engines, etc.)
-
-* Deployment instructions
-
-* ...
+### Julian Arango, Juan Ossa
+* El archivo "getRamUse.sh" es el script en bash (con su documentación) para tomar un dato de la memoria y hacer un post de dicho dato.
+* Para el daemon modificamos el archivo crontab con el commando "crontab -e" (-e para editar). Allí pondremos el siguiente commando: "* * * * * sh getRamUse.sh" el cual significa: ejecutar el comando 'sh getRamUse.sh' cada minuto.
